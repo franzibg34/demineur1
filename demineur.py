@@ -1,6 +1,7 @@
 import random
  
 mines = set()           #on crée un set car l'une de ses propriétés consiste à ne pas avoir deux fois la même coordonnée
+mines2 = set()
  
 def demo(n, k):
     """Cette fonction a pour but des grilles de taille n avec k bombes.
@@ -67,12 +68,12 @@ def Generateur_bombe_grille(n, k):
           k entier positif -> nombre de bombes
     Returns: une grille de taille n*n avec k bombes"""
     arr = [[0 for ligne in range(n)] for colonne in range(n)]
-    while len(mines)< k:
+    while len(mines2)< k:
         x_random = random.randint(0,n-1)
         y_random = random.randint(0,n-1)
-        mines.add((x_random, y_random))
+        mines2.add((x_random, y_random))
  
-    for mine in mines:
+    for mine in mines2:
         x, y =mine
         arr[y][x] = 'X'
  
@@ -138,11 +139,11 @@ def Game():
     """Permet à l'utilisateur de rentrer les coordonnées qu'il souhaite pour jouer"""
     Partie_en_cours = True
     while Partie_en_cours:
-        difficulte = input("Selectionne ta difficulte (d, i, e):")  
-        if difficulte.lower() == 'd':           #.lower() permet d'accepter les majuscules (D/I)
+        difficulty = input("Selectionne ta difficulte (d, i, e):")  
+        if difficulty.lower() == 'd':           #.lower() permet d'accepter les majuscules (D/I)
             n = 5
             k = 3
-        elif difficulte.lower() == 'i':
+        elif difficulty.lower() == 'i':
             n = 6
             k = 8
         else:
@@ -182,3 +183,5 @@ if __name__ == "__main__":
         Game()
     except KeyboardInterrupt: #ctrl C to interrupt
         print('\nFin du game. tchao!') 
+ 
+
