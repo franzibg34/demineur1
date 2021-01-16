@@ -182,6 +182,6 @@ if __name__ == "__main__":
     try:
         Game()
     except KeyboardInterrupt: #ctrl C to interrupt
-        print('\nFin du game. tchao!') 
+        print('\nFin du game. tchao!')
  
 
